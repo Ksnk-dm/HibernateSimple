@@ -27,11 +27,6 @@ public class ExchangeImpl extends Dao<Exchange> {
         return a;
     }
 
-    @Override
-    public void update() {
-// хз что тут обновлять
-    }
-
 
     @Override
     public void delete() {
