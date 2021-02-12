@@ -10,8 +10,6 @@ public abstract class Dao<T> {
 
     public abstract Double getAvg(String currency);
 
-    public abstract void update();
-
     public abstract void delete();
 
     public abstract List<T> getAll();
