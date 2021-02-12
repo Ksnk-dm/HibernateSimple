@@ -4,7 +4,7 @@ import java.util.List;
 
 
 public abstract class Dao<T> {
-    public abstract void insert(T adr);
+    public abstract void insert(T exch);
 
     public abstract Double getMax(String currency);
 
