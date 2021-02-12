@@ -1,9 +1,7 @@
 package servlets;
-
 import com.google.gson.Gson;
 import dao.ExchangeImpl;
 import entity.Exchange;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
