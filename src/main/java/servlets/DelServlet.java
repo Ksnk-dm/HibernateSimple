@@ -1,5 +1,7 @@
 package servlets;
 import dao.ExchangeImpl;
+import entity.Exchange;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +14,10 @@ public class DelServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ExchangeImpl excImpl = new ExchangeImpl();
-        excImpl.delete();
+        Exchange exchange =new Exchange();
+        String em = request.getParameter("delname");
+        exchange.setExcheName(em);
+        excImpl.delete(exchange);
         response.sendRedirect("/index.jsp");
     }
 

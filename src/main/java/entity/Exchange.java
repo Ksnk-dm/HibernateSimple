@@ -1,5 +1,7 @@
 package entity;
 
+import com.google.gson.annotations.SerializedName;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -9,34 +11,34 @@ import java.util.Objects;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
-        private int r030;
+        @SerializedName("r030")
+        private int excheId;
         private String txt;
         private double rate;
-        private String cc;
+        @SerializedName("cc")
+        private String excheName;
         private String exchangedate;
 
 
         public Exchange() {
         }
 
-        public Exchange(int id, int r030, String txt, double rate, String cc, String exchangedate) {
+        public Exchange(int id, int excheId, String txt, double rate, String excheName, String exchangedate) {
             this.id = id;
-            this.r030 = r030;
+            this.excheId = excheId;
             this.txt = txt;
             this.rate = rate;
-            this.cc = cc;
+            this.excheName = excheName;
             this.exchangedate = exchangedate;
         }
 
-
-        public Exchange(int r030, String txt, double rate, String cc, String exchangedate) {
-            this.r030 = r030;
+        public Exchange(int excheId, String txt, double rate, String excheName, String exchangedate) {
+            this.excheId = excheId;
             this.txt = txt;
             this.rate = rate;
-            this.cc = cc;
+            this.excheName = excheName;
             this.exchangedate = exchangedate;
         }
-
 
         public int getId() {
             return id;
@@ -46,12 +48,12 @@ import java.util.Objects;
             this.id = id;
         }
 
-        public int getR030() {
-            return r030;
+        public int getExcheId() {
+            return excheId;
         }
 
-        public void setR030(int r030) {
-            this.r030 = r030;
+        public void setExcheId(int excheId) {
+            this.excheId = excheId;
         }
 
         public String getTxt() {
@@ -70,12 +72,12 @@ import java.util.Objects;
             this.rate = rate;
         }
 
-        public String getCc() {
-            return cc;
+        public String getExcheName() {
+            return excheName;
         }
 
-        public void setCc(String cc) {
-            this.cc = cc;
+        public void setExcheName(String excheName) {
+            this.excheName = excheName;
         }
 
         public String getExchangedate() {
@@ -87,25 +89,14 @@ import java.util.Objects;
         }
 
         @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Exchange exchange = (Exchange) o;
-            return id == exchange.id && r030 == exchange.r030 && Double.compare(exchange.rate, rate) == 0 && Objects.equals(txt, exchange.txt) && Objects.equals(cc, exchange.cc) && Objects.equals(exchangedate, exchange.exchangedate);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(id, r030, txt, rate, cc, exchangedate);
-        }
-
-        @Override
         public String toString() {
             return "Exchange{" +
-                    ", r030=" + r030 +
+                    "id=" + id +
+                    ", excheId=" + excheId +
+                    ", txt='" + txt + '\'' +
                     ", rate=" + rate +
-                    ", cc='" + cc + '\'' +
+                    ", excheName='" + excheName + '\'' +
                     ", exchangedate='" + exchangedate + '\'' +
                     '}';
         }
-}
+    }

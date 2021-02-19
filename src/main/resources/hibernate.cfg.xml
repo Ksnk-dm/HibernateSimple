@@ -10,6 +10,7 @@
         <property name="hibernate.format_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <mapping class="entity.Exchange"/>
+        <mapping class="entity.Emails"/>
 
     </session-factory>
 </hibernate-configuration>
