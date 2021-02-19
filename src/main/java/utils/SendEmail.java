@@ -36,7 +36,7 @@ public class SendEmail {
                 properties.put("mail.smtp.starttls.enable", "true");
                 Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
                     protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                        return new javax.mail.PasswordAuthentication("ukrkosenko", "пароль");
+                        return new javax.mail.PasswordAuthentication("ukrkosenko", "0662272779dima");
                     }
                 });
                 SendM(session, from, to, a);
@@ -45,7 +45,7 @@ public class SendEmail {
     }
 
 
-    public void SendM(Session session, String from, String to, Emails a) {
+    private void SendM(Session session, String from, String to, Emails a) {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
