@@ -8,7 +8,6 @@ import utils.HibernateUtil;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -80,17 +79,20 @@ public class ExchangeImpl extends Dao<Exchange> {
     /*Отказался от цикла для создания периода, добавлена возможность добавления только одного дня
         так при постоянной работе на сервере, каждый день в время заданное в слушателе будет происходить добавление нового дня
        в базу и после рассылка подписавшимся */
-    public void insertCurrentDay() throws IOException {
+    public void insertCurrentDay() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-        System.out.println("date: " + dateFormat.format(new Date()));
-        URL url = new URL("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + dateFormat.format(new Date()) + "&json");
-        try (BufferedReader in = new BufferedReader(
-                new InputStreamReader(url.openStream()))) {
+        try {
+            URL url  = new URL("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + dateFormat.format(new Date()) + "&json");
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(url.openStream()));
             Gson gson = new Gson();
             Exchange[] curs = gson.fromJson(in, Exchange[].class);
             for (Exchange user : curs) {
                 insert(user);
             }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

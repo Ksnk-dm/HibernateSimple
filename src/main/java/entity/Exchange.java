@@ -3,7 +3,6 @@ package entity;
 import com.google.gson.annotations.SerializedName;
 
 import javax.persistence.*;
-import java.util.Objects;
 
     @Entity
     @Table

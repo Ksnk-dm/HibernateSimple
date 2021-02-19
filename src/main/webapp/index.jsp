@@ -22,6 +22,9 @@
     <p>Введите почту для удаления <input type="text" name="delemail">
     <p><input type="submit" value="удалить почту"/></p>
 </form>
+<form method="get" action="/updateServlet">
+    <input type="submit" value="добавить в бд "/></p>
+</form>
 
 </body>
 </html>
