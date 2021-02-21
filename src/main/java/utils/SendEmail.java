@@ -39,13 +39,13 @@ public class SendEmail {
                         return new javax.mail.PasswordAuthentication("ukrkosenko", "пароль");
                     }
                 });
-                SendM(session, from, to, a);
+                sendM(session, from, to, a);
             }
         }
     }
 
 
-    private void SendM(Session session, String from, String to, Emails a) {
+    private void sendM(Session session, String from, String to, Emails a) {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
